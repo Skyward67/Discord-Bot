@@ -82,6 +82,7 @@ bot.on("message", async message => {
     let command = content[0];
     let args = content.slice(1);
     let prefix = ">";
+    if (message.content[0] != prefix) return;
 
     let commandfile = bot.commands.get(command.slice(prefix.length));
     if (commandfile) commandfile.run(bot, message, args);
